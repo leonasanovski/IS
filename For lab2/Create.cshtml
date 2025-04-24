@@ -1,0 +1,39 @@
+﻿@model HospitalApplication.Domain.DomainModels.PatientDepartment
+
+@{
+    ViewData["Title"] = "Assign Department";
+}
+
+<h1>Assign Patient to Department</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!--TODO: Put the action name where the form should be submitted-->
+
+        <form asp-action="Create" method="post">
+            <!--TODO: Put a hidden input for the PatientId-->
+            <input type="hidden" asp-for="PatientId" value="@ViewBag.PatientId" />
+
+            <!--TODO: Put a select element for the Department. You can use the SelectList from the controller method.
+                For reference, take a look for an example in the other models views
+            -->
+
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label"></label>
+                <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
