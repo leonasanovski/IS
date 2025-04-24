@@ -1,0 +1,11 @@
+1. First thing first, I go in the Models and change all of the Ids with inheriting from : BaseEntity
+2. I start implementing the service interfaces
+- It is copy paste from the github from the regular auditory classes
+3. Now we need to implement the services in the controller, so we can use repository instead of DbContext
+- FIRST WE GO TO PROGRAM.CS AND WE REGISTER .AddTransient<interface, implementation> BEFORE var app = builder.Build();
+- Then we change the controllers
+4. Then we implement the main thing in the view
+We send it with ViewBag (the id of the item we add something, and the ids of the things we want to add to the object)
+Then we make the form in the View and at the end we do the post method.
+Additionally, we need to memorize the user in the MtoN class we make, so we start from the controller, then we go to the service and we keep it in the object.
+We just send it from top to bottom
